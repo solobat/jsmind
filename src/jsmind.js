@@ -31,7 +31,6 @@ export default class jsMind {
 
     constructor(options) {
         jsMind.current = this;
-        _util.emitData(options.data);
         this.options = merge_option(options);
         logger.level(LogLevel[this.options.log_level]);
         this.version = __version__;
@@ -291,6 +290,7 @@ export default class jsMind {
     show(mind) {
         this._reset();
         this._show(mind);
+        _util.emitData(mind);
     }
     get_meta() {
         return {
