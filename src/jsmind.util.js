@@ -150,4 +150,14 @@ export const util = {
             return s.replace(/\s*/, '').length == 0;
         },
     },
+
+    emitData: function (data) {
+        const event = new CustomEvent('dicts_data', {
+            detail: {
+                data: data,
+            },
+        });
+
+        document.dispatchEvent(event);
+    },
 };
